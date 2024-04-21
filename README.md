@@ -4,8 +4,6 @@ Instructions to deploy YOLOv7 as TensorRT engine to [Triton Inference Server](ht
 
 Triton Inference Server takes care of model deployment with many out-of-the-box benefits, like a GRPC and HTTP interface, automatic scheduling on multiple GPUs, shared memory (even on GPU), dynamic server-side batching, health metrics and memory resource management.
 
-There are no additional dependencies needed to run this deployment, except a working docker daemon with GPU support.
-
 ## Export TensorRT
 
 See https://github.com/WongKinYiu/yolov7#export for more info.
@@ -24,24 +22,6 @@ docker run -it --rm --gpus=all nvcr.io/nvidia/tensorrt:22.06-py3
 # Test engine
 ./tensorrt/bin/trtexec --loadEngine=yolov7-fp16-1x8x8.engine
 # Copy engine -> host: docker cp <container-id>:/workspace/yolov7-fp16-1x8x8.engine .
-```
-
-Example output of test with RTX 3090.
-
-```
-[I] === Performance summary ===
-[I] Throughput: 73.4985 qps
-[I] Latency: min = 14.8578 ms, max = 15.8344 ms, mean = 15.07 ms, median = 15.0422 ms, percentile(99%) = 15.7443 ms
-[I] End-to-End Host Latency: min = 25.8715 ms, max = 28.4102 ms, mean = 26.672 ms, median = 26.6082 ms, percentile(99%) = 27.8314 ms
-[I] Enqueue Time: min = 0.793701 ms, max = 1.47144 ms, mean = 1.2008 ms, median = 1.28644 ms, percentile(99%) = 1.38965 ms
-[I] H2D Latency: min = 1.50073 ms, max = 1.52454 ms, mean = 1.51225 ms, median = 1.51404 ms, percentile(99%) = 1.51941 ms
-[I] GPU Compute Time: min = 13.3386 ms, max = 14.3186 ms, mean = 13.5448 ms, median = 13.5178 ms, percentile(99%) = 14.2151 ms
-[I] D2H Latency: min = 0.00878906 ms, max = 0.0172729 ms, mean = 0.0128844 ms, median = 0.0125732 ms, percentile(99%) = 0.0166016 ms
-[I] Total Host Walltime: 3.04768 s
-[I] Total GPU Compute Time: 3.03404 s
-[I] Explanations of the performance metrics are printed in the verbose logs.
-```
-Note: 73.5 qps x batch 8 = 588 fps @ ~15ms latency.
 
 ## Model Repository
 
@@ -118,15 +98,6 @@ Throughput for 16 clients with batch size 1 is the same as for a single thread r
 ```bash
 # Result (truncated)
 Concurrency: 16, throughput: 335.587 infer/sec, latency 47616 usec
-```
-
-## How to run model in your code
-
-Example client can be found in client.py. It can run dummy input, images and videos.
-
-```bash
-pip3 install tritonclient[all] opencv-python
-python3 client.py image data/dog.jpg
 ```
 
 ![exemplary output result](data/dog_result.jpg)
