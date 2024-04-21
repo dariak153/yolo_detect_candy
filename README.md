@@ -102,8 +102,6 @@ In the log you should see:
 
 See [Triton Model Analyzer Documentation](https://github.com/triton-inference-server/server/blob/main/docs/model_analyzer.md#model-analyzer) for more info.
 
-Performance numbers @ RTX 3090 + AMD Ryzen 9 5950X
-
 Example test for 16 concurrent clients using shared memory, each with batch size 1 requests:
 
 ```bash
