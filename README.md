@@ -100,7 +100,7 @@ Throughput for 16 clients with batch size 1 is the same as for a single thread r
 Concurrency: 16, throughput: 335.587 infer/sec, latency 47616 usec
 ```
 
-![exemplary output result](data/dog_result.jpg)
+
 
 ```
 $ python3 client.py --help
