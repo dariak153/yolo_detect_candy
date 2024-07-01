@@ -5,7 +5,7 @@ Triton Inference Server takes care of model deployment with many out-of-the-box 
 
 ## Export TensorRT
 
-See https://github.com/WongKinYiu/yolov7#export for more info.
+
 
 ```bash
 #install onnx-simplifier not listed in general yolov7 requirements.txt
@@ -89,9 +89,6 @@ docker run -it --ipc=host --net=host nvcr.io/nvidia/tritonserver:22.06-py3-sdk /
 
 # Result (truncated)
 Concurrency: 16, throughput: 590.119 infer/sec, latency 27080 usec
-```
-
-Throughput for 16 clients with batch size 1 is the same as for a single thread running the engine at 16 batch size locally thanks to Triton [Dynamic Batching Strategy](https://github.com/triton-inference-server/server/blob/main/docs/model_configuration.md#dynamic-batcher). Result without dynamic batching (disable in model configuration) considerably worse:
 
 ```bash
 # Result (truncated)
