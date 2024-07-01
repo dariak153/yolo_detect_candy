@@ -24,7 +24,6 @@ docker run -it --rm --gpus=all nvcr.io/nvidia/tensorrt:22.06-py3
 
 ## Model Repository
 
-See [Triton Model Repository Documentation](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-repository) for more info.
 
 ```bash
 # Create folder structure
@@ -36,7 +35,6 @@ mv yolov7-fp16-1x8x8.engine triton-deploy/models/yolov7/1/model.plan
 
 ## Model Configuration
 
-See [Triton Model Configuration Documentation](https://github.com/triton-inference-server/server/blob/main/docs/model_configuration.md#model-configuration) for more info.
 
 Minimal configuration for `triton-deploy/models/yolov7/config.pbtxt`:
 
