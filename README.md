@@ -1,6 +1,5 @@
 # YOLOv7 on Triton Inference Server
 
-Instructions to deploy YOLOv7 as TensorRT engine to [Triton Inference Server](https://github.com/NVIDIA/triton-inference-server).
 
 Triton Inference Server takes care of model deployment with many out-of-the-box benefits, like a GRPC and HTTP interface, automatic scheduling on multiple GPUs, shared memory (even on GPU), dynamic server-side batching, health metrics and memory resource management.
 
@@ -48,7 +47,6 @@ max_batch_size: 8
 dynamic_batching { }
 ```
 
-Example repository:
 
 ```bash
 $ tree triton-deploy/
