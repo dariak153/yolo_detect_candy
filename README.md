@@ -1,3 +1,9 @@
+
+#Results 
+![](train/yolov72/train_batch0.jpg)
+![](train/yolov72/train_batch2.jpg)
+![](train/yolov72/train_batch7.jpg)
+
 # YOLOv7 on Triton Inference Server
 
 
